@@ -1,0 +1,33 @@
+{
+  "name": "micro-frontends-course",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Curso completo de Micro Frontends - Single-spa, Module Federation e Native Federation",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "dev:simple": "turbo run dev --filter=api-backend --filter=web-simple --parallel",
+    "dev:aula1": "turbo run dev --filter=api-backend --parallel",
+    "dev:aula2": "turbo run dev --filter=shell-singlespa --filter=mfe-login-singlespa --parallel",
+    "dev:aula3": "turbo run dev --filter=shell-mf --filter=mfe-login-mf --parallel",
+    "dev:aula4": "turbo run dev --filter=shell-native --filter=mfe-login-native --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules .turbo"
+  },
+  "devDependencies": {
+    "turbo": "^1.11.0",
+    "prettier": "^3.1.0",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

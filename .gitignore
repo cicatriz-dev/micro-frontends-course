@@ -1,0 +1,13 @@
+node_modules/
+dist/
+build/
+.turbo/
+.env
+.DS_Store
+*.log
+.vscode/
+.idea/
+coverage/
+.cache/
+*.tsbuildinfo
+docs/PLANO_IMPLEMENTACAO_SINGLESPA.md
