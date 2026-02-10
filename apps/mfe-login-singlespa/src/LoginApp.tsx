@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@repo/ui';
+import { LoginForm } from './components/LoginForm';
 
 type Tab = 'login' | 'register';
 
@@ -17,10 +18,7 @@ export function LoginApp() {
 				</CardHeader>
 
 				<CardContent>
-					<p className='text-center text-gray-600'>MFE de Login funcionando! 🎉</p>
-					<p className='text-xs text-gray-400 text-center mt-2'>
-						Formulários serão implementados na próxima aula
-					</p>
+					<LoginForm />
 				</CardContent>
 			</Card>
 		</div>
