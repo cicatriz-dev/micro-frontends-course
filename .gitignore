@@ -10,4 +10,4 @@ build/
 coverage/
 .cache/
 *.tsbuildinfo
-docs/PLANO_IMPLEMENTACAO_SINGLESPA.md
+docs/PLANO_IMPLEMENTACAO_*.md
