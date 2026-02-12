@@ -1,39 +1,43 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="Content-Security-Policy"
-      content="default-src 'self';
-      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net http://localhost:4001;
-      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			http-equiv="Content-Security-Policy"
+			content="default-src 'self';
+      script-src 'self' 'unsafe-eval' 'unsafe-inline' https://cdn.jsdelivr.net http://localhost:4001 http://localhost:5001;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com http://localhost:5001;
       font-src 'self' https://fonts.gstatic.com;
-      connect-src 'self' http://localhost:3001 http://localhost:4001 https://cdn.jsdelivr.net;"
-    >
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <title>Livraria Online - Micro Frontends</title>
+      connect-src 'self' http://localhost:3001 http://localhost:4001 http://localhost:5001 https://cdn.jsdelivr.net;"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Livraria Online - Micro Frontends</title>
 
-    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/system.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/extras/amd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/extras/named-exports.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/system.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/extras/amd.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/systemjs@6.14.2/dist/extras/named-exports.min.js"></script>
 
-    <script type="systemjs-importmap">
-    {
-      "imports": {
-        "react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js",
-        "react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js",
-        "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.0/lib/system/single-spa.dev.js",
-        "@mfe/login": "http://localhost:4001/mfe-login.js"
-      }
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <div id="mfe-login-container"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+		<script type="systemjs-importmap">
+			{
+				"imports": {
+					"react": "https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js",
+					"react-dom": "https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js",
+					"single-spa": "https://cdn.jsdelivr.net/npm/single-spa@6.0.0/lib/system/single-spa.dev.js",
+					"@mfe/login": "http://localhost:4001/mfe-login.js"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<div id="mfe-login-container"></div>
+		<script type="module" src="/src/main.tsx"></script>
+	</body>
 </html>
