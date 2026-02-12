@@ -1,5 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy, Suspense } from 'react';
 import { Home } from './pages/Home';
+
+const LoginAppMF = lazy(() => import('mfeLogin/LoginApp'));
 
 function App() {
 	const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -27,6 +29,15 @@ function App() {
 						← Voltar para Home
 					</button>
 				</div>
+				<Suspense
+					fallback={
+						<div className='min-h-screen flex items-center justify-center'>
+							<div className='text-lg text-gray-600'>Carregando...</div>
+						</div>
+					}
+				>
+					<LoginAppMF />
+				</Suspense>
 			</>
 		);
 	}
