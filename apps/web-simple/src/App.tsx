@@ -1,7 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from 'react';
 import { Home } from './pages/Home';
 
-const LoginAppMF = lazy(() => import('mfeLogin/LoginApp'));
+const LoginAppNative = lazy(() => import('mfeLoginNative/LoginApp'));
 
 function App() {
 	const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -36,7 +36,7 @@ function App() {
 						</div>
 					}
 				>
-					<LoginAppMF />
+					<LoginAppNative />
 				</Suspense>
 			</>
 		);

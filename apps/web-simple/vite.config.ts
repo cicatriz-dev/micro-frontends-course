@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -8,8 +8,14 @@ export default defineConfig({
 		react(),
 		federation({
 			name: 'web-simple',
+			dts: false,
 			remotes: {
-				mfeLogin: 'http://localhost:5001/assets/remoteEntry.js',
+				mfeLoginNative: {
+					// ⭐ Nova sintaxe (objeto)
+					type: 'module',
+					name: 'mfeLoginNative',
+					entry: 'http://localhost:5002/remoteEntry.js', // ⭐ Raiz, não /assets/
+				},
 			},
 			shared: {
 				react: {

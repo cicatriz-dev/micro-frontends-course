@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import App from './App';
 import './index.css';
-import { registerApplication, start } from 'single-spa';
+// import { registerApplication, start } from 'single-spa';
 
 declare global {
 	interface Window {
@@ -23,18 +23,18 @@ const resizeObserverErrHandler = (e: ErrorEvent) => {
 
 window.addEventListener('error', resizeObserverErrHandler);
 
-registerApplication({
-	name: '@mfe/login',
-	app: () => window.System.import('@mfe/login'),
-	activeWhen: (location) => location.pathname === '/login',
-	customProps: {
-		domElement: document.getElementById('mfe-login-container'),
-	},
-});
+// registerApplication({
+// 	name: '@mfe/login',
+// 	app: () => window.System.import('@mfe/login'),
+// 	activeWhen: (location) => location.pathname === '/login',
+// 	customProps: {
+// 		domElement: document.getElementById('mfe-login-container'),
+// 	},
+// });
 
-start({
-	urlRerouteOnly: true,
-});
+// start({
+// 	urlRerouteOnly: true,
+// });
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
