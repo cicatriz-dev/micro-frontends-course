@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store } from './store';
 import App from './App';
 import './index.css';
-// import { registerApplication, start } from 'single-spa';
+import { getMFEConfig } from './config/mfe-config';
 
 declare global {
 	interface Window {
@@ -23,18 +23,26 @@ const resizeObserverErrHandler = (e: ErrorEvent) => {
 
 window.addEventListener('error', resizeObserverErrHandler);
 
-// registerApplication({
-// 	name: '@mfe/login',
-// 	app: () => window.System.import('@mfe/login'),
-// 	activeWhen: (location) => location.pathname === '/login',
-// 	customProps: {
-// 		domElement: document.getElementById('mfe-login-container'),
-// 	},
-// });
+// Registrar Single-SPA apenas para aula2
+const mfeConfig = getMFEConfig();
 
-// start({
-// 	urlRerouteOnly: true,
-// });
+if (mfeConfig.mode === 'aula2') {
+	// Importar dinamicamente single-spa apenas quando necessário
+	import('single-spa').then(({ registerApplication, start }) => {
+		registerApplication({
+			name: '@mfe/login',
+			app: () => window.System.import('@mfe/login'),
+			activeWhen: (location) => location.pathname === '/login',
+			customProps: {
+				domElement: document.getElementById('mfe-login-container'),
+			},
+		});
+
+		start({
+			urlRerouteOnly: true,
+		});
+	});
+}
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
